@@ -37,12 +37,12 @@ MainWindowController::MainWindowController(MainWindow *mainWindow){
     progressBar->setVisible(false);
 
     //Create and connect the left click menu
-    connect(stdMenu.addAction("Corriger"), SIGNAL(triggered()), this,SLOT(slotCorrectStd()));
-    connect(stdMenu.addAction("Supprimer"), SIGNAL(triggered()), this, SLOT(slotDeleteStd()));
-    connect(stdMenu.addAction("Vérifier"), SIGNAL(triggered()), this, SLOT(slotCheckStd()));
-    connect(defMenu.addAction("Corriger"), SIGNAL(triggered()), this,SLOT(slotCorrectDef()));
-    connect(defMenu.addAction("Supprimer"), SIGNAL(triggered()), this, SLOT(slotDeleteDef()));
-    connect(defMenu.addAction("Vérifier"), SIGNAL(triggered()), this, SLOT(slotCheckDef()));
+    connect(stdMenu.addAction(tr("Correct")), SIGNAL(triggered()), this,SLOT(slotCorrectStd()));
+    connect(stdMenu.addAction(tr("Delete")), SIGNAL(triggered()), this, SLOT(slotDeleteStd()));
+    connect(stdMenu.addAction(tr("Check")), SIGNAL(triggered()), this, SLOT(slotCheckStd()));
+    connect(defMenu.addAction(tr("Correct")), SIGNAL(triggered()), this,SLOT(slotCorrectDef()));
+    connect(defMenu.addAction(tr("Delete")), SIGNAL(triggered()), this, SLOT(slotDeleteDef()));
+    connect(defMenu.addAction(tr("Check")), SIGNAL(triggered()), this, SLOT(slotCheckDef()));
 
     //Connect the action from the menu bar
     connect(view->getUi()->actionNouvelle_partie, SIGNAL(triggered()), this, SLOT(slotNewGame()));
@@ -65,12 +65,10 @@ MainWindowController::MainWindowController(MainWindow *mainWindow){
 }
 
 void MainWindowController::slotNewGame(){
-    cout << "Nouvelle partie" << endl;
     newGD->show();
 }
 
 void MainWindowController::slotManageDictionnaries(){
-    cout << "Manager dictionnaires" << endl;
      dmController->show();
 }
 
@@ -93,7 +91,6 @@ void MainWindowController::slotImportGrid(){
     QString fileName = QFileDialog::getOpenFileName(nullptr, tr("Choisir un fichier grille "), "", tr("Grid File(*.grid)"));
     string filePath = qPrintable(fileName);
     grid.import(filePath);
-    cout<<"Grille importéeee"<<endl<<grid;
 
 
     this->deleteGraphicalGrid();
@@ -133,7 +130,6 @@ void MainWindowController::slotDeleteStd(){
 }
 
 void MainWindowController::slotDeleteDef(){
-    cout << "DELETE DEF" << endl;
 
     if(selected == QPoint(-1,-1))
         slotClickDefSquare(rightClicked);

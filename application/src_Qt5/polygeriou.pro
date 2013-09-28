@@ -53,7 +53,14 @@ HEADERS  += mainwindow.h \
     Word.h
 
 OTHER_FILES += \
-    dictionnaire_parse.txt
+    dictionnaire_parse.txt \
+    polygeriou_fr.ts \
+    polygeriou_en.ts \
+    polygeriou_br.ts
+
+ TRANSLATIONS    = polygeriou_fr.ts \
+                   polygeriou_br.ts \
+                   polygeriou_en.ts
 
 FORMS += \
     newgamedialog.ui \
