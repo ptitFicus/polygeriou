@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Dictionnary manager</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
@@ -35,7 +35,7 @@
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Choix du dictionnaire</string>
+            <string>Select dictionnary :</string>
            </property>
            <property name="margin">
             <number>0</number>
@@ -65,20 +65,29 @@
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
-         <property name="margin">
+         <property name="leftMargin">
+          <number>10</number>
+         </property>
+         <property name="topMargin">
+          <number>10</number>
+         </property>
+         <property name="rightMargin">
+          <number>10</number>
+         </property>
+         <property name="bottomMargin">
           <number>10</number>
          </property>
          <item>
           <widget class="QPushButton" name="boutonImporter">
            <property name="text">
-            <string>Importer</string>
+            <string>Import</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="boutonSupprimer">
            <property name="text">
-            <string>Supprimer</string>
+            <string>Delete</string>
            </property>
           </widget>
          </item>
@@ -94,7 +103,7 @@
    <item>
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>Mots du dictionnaire séléctionné</string>
+      <string>Words of the selected dictionnary</string>
      </property>
     </widget>
    </item>
@@ -109,12 +118,12 @@
          </attribute>
          <column>
           <property name="text">
-           <string>Mots</string>
+           <string>Words</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Définitions</string>
+           <string>Definitions</string>
           </property>
          </column>
         </widget>
@@ -145,21 +154,21 @@
        <item>
         <widget class="QPushButton" name="createDictionnary">
          <property name="text">
-          <string>Creer dictionnaire</string>
+          <string>Create dictionnary</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="addWord">
          <property name="text">
-          <string>Ajouter</string>
+          <string>Add</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="deleteWord">
          <property name="text">
-          <string>Supprimer</string>
+          <string>Delete</string>
          </property>
         </widget>
        </item>

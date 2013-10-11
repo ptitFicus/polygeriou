@@ -34,7 +34,7 @@ void NewGameDialogController::slotCreateNewGrid()
         if(dictionnariesList->item(i)->checkState() == Qt::Checked)
         {
             Dictionnary* d = mainController->getDictionnaryManager()->getDictionnary((dictionnariesList->item(i)->text()).toUtf8().constData());
-            cout << "Nom init : " << d->getName() << endl;
+
             dictionnaries.push_back(d);
         }
     }

@@ -32,7 +32,7 @@ MainWindowController::MainWindowController(MainWindow *mainWindow){
     rightClicked = nullptr; //SquareScene of the left clicked square
 
 
-    progressBar = new QProgressDialog("Temps restant", "Annuler", 0, 60, 0, Qt:: Dialog | Qt:: FramelessWindowHint | Qt:: WindowTitleHint | Qt:: CustomizeWindowHint);
+    progressBar = new QProgressDialog(tr("Remaining time"), tr("Cancel"), 0, 60, 0, Qt:: Dialog | Qt:: FramelessWindowHint | Qt:: WindowTitleHint | Qt:: CustomizeWindowHint);
     progressBar->setCancelButton(NULL);
     progressBar->setVisible(false);
 
@@ -74,21 +74,21 @@ void MainWindowController::slotManageDictionnaries(){
 
 
 void MainWindowController::slotSaveGame(){
-    QString fileName = QFileDialog::getSaveFileName(nullptr, tr("Choisir un emplacement "), "", tr("Grid File(*.grid)"));
+    QString fileName = QFileDialog::getSaveFileName(nullptr, tr("Choose location"), "", tr("Grid File(*.grid)"));
     string filePath = qPrintable(fileName);
 
     grid.Xport(filePath, false); //false = with content
 }
 
 void MainWindowController::slotExportGrid(){
-    QString fileName = QFileDialog::getSaveFileName(nullptr, tr("Choisir un emplacement "), "", tr("Grid File(*.grid)"));
+    QString fileName = QFileDialog::getSaveFileName(nullptr, tr("Choose location"), "", tr("Grid File(*.grid)"));
     string filePath = qPrintable(fileName);
 
     grid.Xport(filePath, true); //true = empty grid
 }
 
 void MainWindowController::slotImportGrid(){
-    QString fileName = QFileDialog::getOpenFileName(nullptr, tr("Choisir un fichier grille "), "", tr("Grid File(*.grid)"));
+    QString fileName = QFileDialog::getOpenFileName(nullptr, tr("Chooose grid file"), "", tr("Grid File(*.grid)"));
     string filePath = qPrintable(fileName);
     grid.import(filePath);
 
@@ -359,7 +359,6 @@ void MainWindowController::nextSquare(int dir) {
 }
 
 void MainWindowController::slotEnterDefSquare(int index) {
-    cout << "CASE : " << index << endl;
     QListWidgetItem* lWidget = view->getUi()->definitionWidget->item(index-1);
     lWidget->setBackgroundColor(QColor(Qt::red));
     selectedItem = lWidget;
@@ -372,7 +371,6 @@ void MainWindowController::slotExitDefSquare(int index) {
 }
 
 void MainWindowController::slotList(QListWidgetItem* item) {
-    cout << "LISTE : " << item->text().toStdString() << endl;
     int index = item->listWidget()->row(item);
     SquareScene* sqS = get1stSquareScene(index);
     int x = sqS->getX();
@@ -380,7 +378,6 @@ void MainWindowController::slotList(QListWidgetItem* item) {
     bool lower = sqS->getLower();
     Square* selectedSq = grid.getSquare(x,y);
 
-    cout << x << "," << y << " " <<  "LOWER : " << lower << endl;
     if(selected == QPoint(-1,-1)) {
 
         select(x,y, selectedSq, lower);
@@ -502,7 +499,7 @@ void MainWindowController::fillGrid() {
         for(int x = 0; x < grid.getWidth(); x++) {
             Square* s = grid.getSquare(x,y);
             if(s == nullptr) {
-                cout << "error : no square found at" << x << ", " << y << endl;
+                //error
             } else {
                 switch(s->getWordCount()) {
                 case 0:
@@ -714,8 +711,8 @@ bool MainWindowController::generateGrid(int newHeigth, int newWidth, const vecto
     }
     else
     {
-        QMessageBox::warning(this->view, "échec de la génération",
-                             "<html>La génération de la grille demandée a échouée, vous pouvez : <ul><li>Réessayer</li><li>Essayer avec une grille plus petite</li><li>Changer la sélection de dictionnaires</li></ul>");
+        QMessageBox::warning(this->view, tr("Generation failure"),
+                            tr("<html>The grid generation has failed, you can: <ul><li>Try again</li><li>Try with a smaller grid</li><li>Change the dictionnary selection</li></ul>"));
     }
     return ret;
 }
@@ -723,7 +720,7 @@ bool MainWindowController::generateGrid(int newHeigth, int newWidth, const vecto
 void MainWindowController::slotQuitApplication()
 {
 
-   if(QMessageBox::question(this->view, "Confirmation de fermeture", "Quitter l'application ?") == QMessageBox::Yes)
+   if(QMessageBox::question(this->view, tr("Confirm close"), tr("Exit application ?")) == QMessageBox::Yes)
    {
         QApplication::quit();
    }
@@ -737,7 +734,7 @@ void MainWindowController::slotIncrementProgressBar(int value)
 
 void MainWindowController:: exportToPDF()
 {
-    QString fileName = QFileDialog::getSaveFileName(nullptr, tr("Choisir un emplacement "), "", tr("PDF File(*.pdf)"));
+    QString fileName = QFileDialog::getSaveFileName(nullptr, tr("Choose PDF location"), "", tr("PDF File(*.pdf)"));
     QPrinter prn;
     prn.setOutputFileName(QString(fileName));
     //QPrintDialog(&prn, mainWindow).exec();

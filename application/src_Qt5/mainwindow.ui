@@ -29,7 +29,7 @@
          <x>0</x>
          <y>0</y>
          <width>427</width>
-         <height>491</height>
+         <height>487</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gameLayout">
@@ -70,12 +70,12 @@
      <x>0</x>
      <y>0</y>
      <width>753</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuJeu">
     <property name="title">
-     <string>Fichier</string>
+     <string>File</string>
     </property>
     <addaction name="actionNouvelle_partie"/>
     <addaction name="actionCharger_une_partie"/>
@@ -86,7 +86,7 @@
    </widget>
    <widget class="QMenu" name="menuPartie">
     <property name="title">
-     <string>Jeu</string>
+     <string>Game</string>
     </property>
     <addaction name="actionV_rifier_la_grille"/>
     <addaction name="actionCorriger_la_grille"/>
@@ -94,13 +94,13 @@
    </widget>
    <widget class="QMenu" name="menuDictionnaires">
     <property name="title">
-     <string>Dictionnaires</string>
+     <string>Dictionnaries</string>
     </property>
     <addaction name="actionGestion_des_dictionnaire"/>
    </widget>
    <widget class="QMenu" name="menuAide">
     <property name="title">
-     <string>Aide</string>
+     <string>Help</string>
     </property>
     <addaction name="actionMenu_Aide"/>
     <addaction name="actionA_propos"/>
@@ -113,42 +113,42 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNouvelle_partie">
    <property name="text">
-    <string>Nouvelle partie</string>
+    <string>New grid...</string>
    </property>
   </action>
   <action name="actionCharger_une_partie">
    <property name="text">
-    <string>Charger une partie</string>
+    <string>Load grid...</string>
    </property>
   </action>
   <action name="actionEnregistrer_partie">
    <property name="text">
-    <string>Enregistrer partie</string>
+    <string>Save...</string>
    </property>
   </action>
   <action name="actionExporter_grille">
    <property name="text">
-    <string>Exporter grille</string>
+    <string>Export...</string>
    </property>
   </action>
   <action name="actionQuitter">
    <property name="text">
-    <string>Quitter</string>
+    <string>Exit</string>
    </property>
   </action>
   <action name="actionCorriger_la_grille">
    <property name="text">
-    <string>Corriger la grille</string>
+    <string>Correct grid</string>
    </property>
   </action>
   <action name="actionVider_la_grille">
    <property name="text">
-    <string>Vider la grille</string>
+    <string>Empty grid</string>
    </property>
   </action>
   <action name="actionGestion_des_dictionnaire">
    <property name="text">
-    <string>Gestion des dictionnaire</string>
+    <string>Manage dictionnaries</string>
    </property>
   </action>
   <action name="actionMenu_Aide">
@@ -158,17 +158,17 @@
   </action>
   <action name="actionA_propos">
    <property name="text">
-    <string>A propos</string>
+    <string>About Polygeriou...</string>
    </property>
   </action>
   <action name="actionV_rifier_la_grille">
    <property name="text">
-    <string>Vérifier la grille</string>
+    <string>Check grid</string>
    </property>
   </action>
   <action name="exportPDF">
    <property name="text">
-    <string>Export PDF</string>
+    <string>Export PDF...</string>
    </property>
    <property name="toolTip">
     <string>Exporter en PDF</string>

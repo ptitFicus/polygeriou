@@ -92,7 +92,7 @@ void DictionnaryManagerDialogController::slotCreateDictionnary(){
 
     }else{
         QMessageBox messageBox;
-        messageBox.information(0, "Erreur", "Ce dictionnaire existe déjà");
+        messageBox.information(0, tr("Error"), tr("This dictionnary already exists"));
         messageBox.setFixedSize(500,200);
     }
 
@@ -106,7 +106,7 @@ void DictionnaryManagerDialogController::slotCreateDictionnary(){
 void DictionnaryManagerDialogController::slotImportDictionnary(){
 
     // Ouverture d'une fenêtre permettant de selectionner le fichier à importer
-    QString fileName = QFileDialog::getOpenFileName(dialog, tr("Choisir dictionnaire"),QString(lastPath.c_str()), tr("Dictionnary File(*.txt)"), 0, QFileDialog::DontUseNativeDialog);
+    QString fileName = QFileDialog::getOpenFileName(dialog, tr("Select dictionnary"),QString(lastPath.c_str()), tr("Dictionnary File(*.txt)"), 0, QFileDialog::DontUseNativeDialog);
     if(!fileName.isEmpty()){
         string filePath = qPrintable(fileName);
 
@@ -128,7 +128,7 @@ void DictionnaryManagerDialogController::slotImportDictionnary(){
 
         }else{
             QMessageBox messageBox;
-            messageBox.information(0, "Erreur", "Ce dictionnaire existe déjà");
+            messageBox.information(0, tr("Error"), tr("This dictionnary already exists"));
             messageBox.setFixedSize(500,200);
         }
 
@@ -169,10 +169,10 @@ void DictionnaryManagerDialogController::slotDeleteDictionnary(){
 
     int index = dialog->getUi()->dictionnaires->currentIndex();
     QString dictionnaire = dialog->getUi()->dictionnaires->itemText(index);
-    string question = "Etes-vous sur de vouloir supprimer le dictionnaire " + dictionnaire.toStdString() + "?";
+    string question = tr("Are you sure you want to delete the dictionnary ").toStdString() + dictionnaire.toStdString() + "?";
     // Demande à l'utilisateur confirmation de la suppression
     QMessageBox messageBox;
-    QMessageBox::StandardButton button = messageBox.question(0, "Confirmation", QString(question.c_str()), QMessageBox::Yes|QMessageBox:: No);
+    QMessageBox::StandardButton button = messageBox.question(0, tr("Confirm"), QString(question.c_str()), QMessageBox::Yes|QMessageBox:: No);
     messageBox.setFixedSize(500,200);
 
     if(button == QMessageBox::Yes){
@@ -180,7 +180,7 @@ void DictionnaryManagerDialogController::slotDeleteDictionnary(){
         // Il doit au moins rester un élément dans la liste
         if(dialog->getUi()->dictionnaires->count() == 1){
             QMessageBox messageBox;
-            messageBox.information(0, "Erreur", "Il doit rester au moins un elément dans la liste");
+            messageBox.information(0, tr("Error"), tr("An element should remain in the list"));
             messageBox.setFixedSize(500,200);
         }else{
             // Suppression du dictionnaire de la liste
@@ -357,10 +357,10 @@ void DictionnaryManagerDialogController::slotDeleteWord(){
         i++;
     }
 
-    string question = "Etes-vous sur de vouloir supprimer le mot " + mot + " ? ";
+    string question = tr("Are you sure you want to delete the word ").toStdString() + mot + " ? ";
 
     QMessageBox messageBox;
-    QMessageBox::StandardButton button = messageBox.question(0, "Confirmation", QString(question.c_str()), QMessageBox::Yes|QMessageBox:: No);
+    QMessageBox::StandardButton button = messageBox.question(0, tr("Confirm"), QString(question.c_str()), QMessageBox::Yes|QMessageBox:: No);
     messageBox.setFixedSize(500,200);
 
     if(button == QMessageBox::Yes){
@@ -375,9 +375,6 @@ void DictionnaryManagerDialogController::slotAddWord(){
 
   map<string, vector<string> > liste = dm->getContent(dictionnaire);
   map<string, vector<string> >::iterator it;
-  cout<<"Contenu du dictionnaire"<<endl;
-  for(it = liste.begin(); it != liste.end(); it++)
-      cout <<"  " << it->first << endl;
 
     string addedWord = awDialog->getUi()->lineEdit->text().toStdString();
     if(NormaliserSaisie::normalizeString(addedWord)){
@@ -386,12 +383,12 @@ void DictionnaryManagerDialogController::slotAddWord(){
             dm->addWord(dictionnaire, addedWord, vector<string>());
         }else{
             QMessageBox messageBox;
-            messageBox.information(0, "Erreur", "Ce mot existe déjà");
+            messageBox.information(0, tr("Error"), tr("This word already exists"));
             messageBox.setFixedSize(500,200);
         }
     }else{
         QMessageBox messageBox;
-        messageBox.information(0, "Erreur", "Il y a des caractères non pris en compte");
+        messageBox.information(0, tr("Error"), tr("There ar some unvalid characters"));
         messageBox.setFixedSize(500,200);
     }
 

@@ -7,10 +7,10 @@ StandardSquare::StandardSquare(void)
     this->expected=' ';
     this->modifiable=true;
     this->wordCount=0;
-    this->options.push_back("Corriger");
-    this->options.push_back("Vérifier");
-    this->options.push_back("Vider");
-    this->options.push_back("Modifier");
+    this->options.push_back("Correct");
+    this->options.push_back("Check");
+    this->options.push_back("Empty");
+    this->options.push_back("Modify");
 }
 
 StandardSquare::StandardSquare(char expected, char content)
@@ -19,10 +19,10 @@ StandardSquare::StandardSquare(char expected, char content)
     this->expected=expected;
     this->wordCount=0;
     this->modifiable=true;
-    this->options.push_back("Corriger");
-    this->options.push_back("Vérifier");
-    this->options.push_back("Vider");
-    this->options.push_back("Modifier");
+    this->options.push_back("Correct");
+    this->options.push_back("Check");
+    this->options.push_back("Empty");
+    this->options.push_back("Modify");
 
 }
 

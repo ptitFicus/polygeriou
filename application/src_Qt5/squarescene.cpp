@@ -31,7 +31,6 @@ bool SquareScene::event ( QEvent * e ) {
 
 void SquareScene::mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent ) {
     if(mouseEvent->button() == Qt::LeftButton) {
-        std::cout << "click" << std::endl;
         emit clicked(this);
     }
     else if(mouseEvent->button() == Qt::RightButton) {

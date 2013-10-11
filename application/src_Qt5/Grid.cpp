@@ -186,7 +186,6 @@ bool Grid::import(string path){
             split = this->split(contenu);
             //Si on a plus ou moins de deux infos, on arrete      //A FAIRE : VERIFIER QUE LES TAILLES NE SONT QUE DES CHIFFRES
             if(split.size()!=2){
-                cout<<"Mauvais format de taille!"<<endl;
                 return 0;
             }
             //Sinon on rempli les tailles
@@ -206,14 +205,14 @@ bool Grid::import(string path){
 
                 //Vérification du format de la ligne
                 if(split.size()==0 || split.size()==3 || split.size()>4){
-                    cout<<"Ligne erronée ! : "<<split.size()<<" : "<<contenu<<endl;
+                    //cout<<"Ligne erronée ! : "<<split.size()<<" : "<<contenu<<endl;
                     return 0;
                 }
                 //Cas de case de définition
                 if(split.at(0)[0]>='0' && split.at(0)[0]<='9'){
                     //Cas ou on a deux definitions
                     if(split.size()>2){
-                        cout<<"DF2 , "<<split.at(1)<<split.at(3)<<endl;
+                        //cout<<"DF2 , "<<split.at(1)<<split.at(3)<<endl;
                         Word w;
                         w.addDefinition(split.at(1));
 
@@ -254,7 +253,7 @@ bool Grid::import(string path){
                 else{
                     //On récupère le prmier caractère (normalement l'unique) pour instancier les cases
                     if(split.at(0).length()>1 || split.at(1).length()>1){
-                        cout<<"Le contenu ou la correction contient plus d'un caractère : "<<split.at(0)<<split.at(1)<<endl;
+                        //cout<<"Le contenu ou la correction contient plus d'un caractère : "<<split.at(0)<<split.at(1)<<endl;
                         return 0;
                     }
                     sq = new StandardSquare(split.at(1)[0],split.at(0)[0]);
