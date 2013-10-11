@@ -1,9 +1,11 @@
 #ifndef DICTIONNARY_H
 #define DICTIONNARY_H
-#include "Word.h"
+
 #include <fstream>
 #include <cstring>
 #include <list>
+
+#include "Word.h"
 
 class Dictionnary
 {

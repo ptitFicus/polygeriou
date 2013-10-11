@@ -3,8 +3,10 @@
 #include <list>
 #include <map>
 #include <string>
-#include "Dictionnary.h"
 #include <QObject>
+
+#include "Dictionnary.h"
+
 using namespace std;
 
 class DictionnaryManager : public QObject

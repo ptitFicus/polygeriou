@@ -2,18 +2,19 @@
 #define MAINWINDOWCONTROLLER_H
 
 #include <QObject>
-#include "mainwindow.h"
-#include "newgamedialog.h"
-#include "newgamedialogcontroller.h"
-#include "dictionnarymanagerdialog.h"
-#include "DictionnaryManager.h"
-#include "dictionnarymanagerdialogcontroller.h"
-#include "Grid.h"
 #include <QPainterPath>
 #include <QMenu>
 #include <QProgressDialog>
 #include <QMessageBox>
 #include <QFileDialog>
+
+#include "mainwindow.h"
+#include "newgamedialog.h"
+#include "newgamedialogcontroller.h"
+#include "dictionnarymanagerdialog.h"
+#include "../model/DictionnaryManager.h"
+#include "dictionnarymanagerdialogcontroller.h"
+#include "../model/Grid.h"
 
 class NewGameDialogController;
 class MainWindowController : public QObject
@@ -80,7 +81,7 @@ private:
     QPoint selected; //Selected definition square
     bool selectedLower; //True if lower definition selected
     vector<QPoint> selectedSquares; //vector of points for the selected squares
-    int currentSquare; //selected square in the vector
+    unsigned int currentSquare; //selected square in the vector
     bool horizSelect; //true if the selected word is the horizontal one
     QMenu stdMenu; //menu when left clicked on a standard square
     QMenu defMenu; //menu when right clicked on a standard square

@@ -5,7 +5,8 @@
 #include <iostream>
 #include <vector>
 #include <QObject>
-#include<fstream>
+#include <fstream>
+
 #include "Square.h"
 #include "DefinitionSquare.h"
 #include "StandardSquare.h"

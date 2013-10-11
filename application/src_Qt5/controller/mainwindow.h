@@ -6,6 +6,7 @@
 #include <QGraphicsTextItem>
 #include <QSpacerItem>
 #include <QGridLayout>
+
 #include "squarescene.h"
 
 namespace Ui {

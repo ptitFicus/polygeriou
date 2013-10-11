@@ -3,12 +3,6 @@
 
 #include <QObject>
 #include <QFile>
-#include "selectnamedialog.h"
-#include "ui_selectnamedialog.h"
-#include "dictionnarymanagerdialog.h"
-#include "DictionnaryManager.h"
-#include "ui_dictionnarymanagerdialog.h"
-#include "normalisersaisie.h"
 #include <QStringList>
 #include <iostream>
 #include <QFileDialog>
@@ -18,6 +12,13 @@
 #include <fstream>
 #include <QMessageBox>
 #include <QProgressBar>
+
+#include "selectnamedialog.h"
+#include "ui_selectnamedialog.h"
+#include "dictionnarymanagerdialog.h"
+#include "../model/DictionnaryManager.h"
+#include "ui_dictionnarymanagerdialog.h"
+#include "normalisersaisie.h"
 
 
 class DictionnaryManagerDialogController : public QObject
@@ -34,7 +35,7 @@ public slots:
     void slotImportDictionnary();
     void slotDeleteDictionnary();
     void slotSelectDictionnary(QString dict);
-    void slotModifyWord(int row, int column);
+    void slotModifyWord(unsigned int row,unsigned int column);
     void slotDeleteWord();
     void slotAddWord();
     void slotCreateDictionnary();

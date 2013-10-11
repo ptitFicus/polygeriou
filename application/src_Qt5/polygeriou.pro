@@ -14,56 +14,57 @@ QMAKE_CXXFLAGS += -std=c++0x
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    squarescene.cpp \
-    mainwindowcontroller.cpp \
-    dictionnarymanagerdialogcontroller.cpp \
-    dictionnarymanagerdialog.cpp \
-    DictionnaryManager.cpp \
-    Dictionnary.cpp \
-    newgamedialog.cpp \
-    newgamedialogcontroller.cpp \
-    selectnamedialog.cpp \
-    normalisersaisie.cpp \
-    DefinitionSquare.cpp \
-    Grid.cpp \
-    Node.cpp \
-    Square.cpp \
-    StandardSquare.cpp \
-    Word.cpp
+SOURCES += \
+    controller/main.cpp\
+    controller/mainwindow.cpp \
+    controller/squarescene.cpp \
+    controller/mainwindowcontroller.cpp \
+    controller/dictionnarymanagerdialogcontroller.cpp \
+    controller/dictionnarymanagerdialog.cpp \
+    controller/newgamedialog.cpp \
+    controller/newgamedialogcontroller.cpp \
+    controller/selectnamedialog.cpp \
+    controller/normalisersaisie.cpp \
+    model/DictionnaryManager.cpp \
+    model/Dictionnary.cpp \
+    model/DefinitionSquare.cpp \
+    model/Grid.cpp \
+    model/Node.cpp \
+    model/Square.cpp \
+    model/StandardSquare.cpp \
+    model/Word.cpp
 
-HEADERS  += mainwindow.h \
-    ui_dictionnarymanager.h \
-    squarescene.h \
-    mainwindowcontroller.h \
-    dictionnarymanagerdialogcontroller.h \
-    dictionnarymanagerdialog.h \
-    DictionnaryManager.h \
-    Dictionnary.h \
-    newgamedialog.h \
-    newgamedialogcontroller.h \
-    selectnamedialog.h \
-    normalisersaisie.h \
-    DefinitionSquare.h \
-    Grid.h \
-    Node.h \
-    Square.h \
-    StandardSquare.h \
-    Word.h
+HEADERS  += \
+    controller/mainwindow.h \
+    controller/ui_dictionnarymanager.h \
+    controller/squarescene.h \
+    controller/mainwindowcontroller.h \
+    controller/dictionnarymanagerdialogcontroller.h \
+    controller/dictionnarymanagerdialog.h \
+    controller/newgamedialog.h \
+    controller/newgamedialogcontroller.h \
+    controller/selectnamedialog.h \
+    controller/normalisersaisie.h \
+    model/DictionnaryManager.h \
+    model/Dictionnary.h \
+    model/DefinitionSquare.h \
+    model/Grid.h \
+    model/Node.h \
+    model/Square.h \
+    model/StandardSquare.h \
+    model/Word.h
 
 OTHER_FILES += \
-    dictionnaire_parse.txt \
-    polygeriou_fr.ts \
-    polygeriou_en.ts \
-    polygeriou_br.ts
+    translation/polygeriou_fr.ts \
+    translation/polygeriou_en.ts \
+    translation/polygeriou_br.ts
 
- TRANSLATIONS    = polygeriou_fr.ts \
-                   polygeriou_br.ts \
-                   polygeriou_en.ts
+ TRANSLATIONS    = translation/polygeriou_fr.ts \
+                   translation/polygeriou_br.ts \
+                   translation/polygeriou_en.ts
 
 FORMS += \
-    newgamedialog.ui \
-    mainwindow.ui \
-    dictionnarymanagerdialog.ui \
-    selectnamedialog.ui
+    view/newgamedialog.ui \
+    view/mainwindow.ui \
+    view/dictionnarymanagerdialog.ui \
+    view/selectnamedialog.ui

@@ -285,7 +285,7 @@ void DictionnaryManagerDialogController::slotSelectDictionnary(QString dict){
  * @param row La ligne de la cellule modifiée
  * @param column La colonne de la cellule modifiée
  */
-void DictionnaryManagerDialogController::slotModifyWord(int row, int column){
+void DictionnaryManagerDialogController::slotModifyWord(unsigned int row, unsigned int column){
 
     // On teste si on doit faire appel à cette méthode
     if(modify){
@@ -299,7 +299,7 @@ void DictionnaryManagerDialogController::slotModifyWord(int row, int column){
         vector<string> anciennesDefinitions;
 
         // On cherche le mot et les définitions de la ligne du mot modifié
-        int i = 0;
+        unsigned int i = 0;
         for(it=contenu.begin() ; it!=contenu.end() ; it++)
         {
             string mot = it->first;
@@ -324,9 +324,11 @@ void DictionnaryManagerDialogController::slotModifyWord(int row, int column){
             }
         }
 
-        int defSize = nouvellesDef.size();
-        int nbCol = dialog->getUi()->definitions->columnCount();
-        if(nouvellesDef.size()== dialog->getUi()->definitions->columnCount()-1)
+        //int defSize = nouvellesDef.size();
+        //int nbCol = dialog->getUi()->definitions->columnCount();
+        unsigned int columnIndex = dialog->getUi()->definitions->columnCount()-1;
+
+        if(nouvellesDef.size() == columnIndex)
             dialog->getUi()->definitions->setColumnCount(dialog->getUi()->definitions->columnCount() + 1);
 
         oldWords->push_back(ancienMot);
@@ -399,8 +401,11 @@ void DictionnaryManagerDialogController::slotAddWord(){
 
 void DictionnaryManagerDialogController::slotActualize(){
 
-    for(int i = 0; i < oldWords->size(); i++){
+    for(unsigned int i = 0; i < oldWords->size(); i++){
         bool ret = dm->modifyWord(dictionnaire, oldWords->at(i), oldDefinitions->at(i),newWords->at(i), newDefinitions->at(i));
+        if(!ret) {
+           //TODO : error message
+        }
     }
 
     slotSelectDictionnary(qPrintable(dictionnaire.c_str()));
@@ -415,8 +420,11 @@ void DictionnaryManagerDialogController::slotActualize(){
 void DictionnaryManagerDialogController::slotSaveChanges(){
 
 
-    for(int i = 0; i < oldWords->size(); i++){
+    for(unsigned int i = 0; i < oldWords->size(); i++){
         bool ret = dm->modifyWord(dictionnaire, oldWords->at(i), oldDefinitions->at(i),newWords->at(i), newDefinitions->at(i));
+        if(!ret) {
+            //TODO : error message
+        }
     }
 
     oldDefinitions->clear();
@@ -452,7 +460,7 @@ void DictionnaryManagerDialogController::removeLine(int line){
     QFile::remove(".dictionnaires.txt");
     ofstream fichierOut(".dictionnaires.txt", ios::out);
     //fichierOut.clear();
-    for(int j = 0; j < liste.size() ; j++){
+    for(unsigned int j = 0; j < liste.size() ; j++){
         fichierOut << liste.at(j) << endl;
     }
     fichierOut.close();

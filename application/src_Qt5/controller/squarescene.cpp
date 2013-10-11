@@ -1,6 +1,7 @@
-#include "squarescene.h"
 #include <iostream>
 #include<QKeyEvent>
+
+#include "squarescene.h"
 
 SquareScene::SquareScene(int index, int x, int y, bool lower) : QGraphicsScene() {
     this->index = index;

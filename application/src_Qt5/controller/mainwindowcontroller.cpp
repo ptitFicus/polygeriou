@@ -1,11 +1,12 @@
+#include <QtPrintSupport>
+#include <QGridLayout>
+#include <iostream>
+
 #include "mainwindowcontroller.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QtPrintSupport>
-#include <QGridLayout>
 
-#include <iostream>
 using namespace std;
 
 MainWindowController::MainWindowController(MainWindow *mainWindow){
@@ -103,7 +104,7 @@ void MainWindowController::slotDeleteGrid() {
 }
 
 void MainWindowController::slotCorrectGrid() {
-    for(int i = 0; i< view->getSquareScene()->size(); i++) {
+    for(unsigned int i = 0; i< view->getSquareScene()->size(); i++) {
         SquareScene*  s= (*(view->getSquareScene()))[i];
         if(s->getIndex() == -1) {
             rightClicked = s;
@@ -114,7 +115,7 @@ void MainWindowController::slotCorrectGrid() {
 }
 
 void MainWindowController::slotCheckGrid() {
-    for(int i = 0; i< view->getSquareScene()->size(); i++) {
+    for(unsigned int i = 0; i< view->getSquareScene()->size(); i++) {
         SquareScene*  s= (*(view->getSquareScene()))[i];
         if(s->getIndex() == -1) {
             rightClicked = s;
@@ -308,7 +309,7 @@ void MainWindowController::select(int x, int y, Square* defSq, bool lower, int x
     }
     if(selectedSquares.size() != 0) {
         if(xS != -1 && yS != -1) {
-            for(int i = 0; i < selectedSquares.size(); i++) {
+            for(unsigned int i = 0; i < selectedSquares.size(); i++) {
                 if(selectedSquares[i].x() == xS && selectedSquares[i].y() == yS)
                     currentSquare = i;
             }
@@ -414,14 +415,14 @@ void MainWindowController::deleteGraphicalGrid() {
     if(sqScene->size() > 0)
     {
 
-        for(int i = 0; i < sqScene->size(); i++) {
+        for(unsigned int i = 0; i < sqScene->size(); i++) {
             delete (*sqScene)[i];
         }
         sqScene->clear();
 
         vector<QGraphicsView*>* sqView = view->getSquareView();
 
-        for(int i = 0; i < sqView->size(); i++) {
+        for(unsigned int i = 0; i < sqView->size(); i++) {
             delete (*sqView)[i];
         }
         sqView->clear();

@@ -1,11 +1,11 @@
-#include "mainwindow.h"
-//#include "newgamedialog.h"
-#include "dictionnarymanagerdialog.h"
-#include "mainwindowcontroller.h"
 #include <iostream>
 #include <QApplication>
 #include <QTranslator>
 #include <QLocale>
+
+#include "mainwindow.h"
+#include "dictionnarymanagerdialog.h"
+#include "mainwindowcontroller.h"
 
 int main(int argc, char *argv[])
 {

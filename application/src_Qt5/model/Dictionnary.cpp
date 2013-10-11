@@ -1,7 +1,8 @@
-#include "Dictionnary.h"
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+
+#include "Dictionnary.h"
 
 using namespace std;
 

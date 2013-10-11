@@ -1,5 +1,7 @@
-#include "Node.h"
 #include <iostream>
+
+#include "Node.h"
+
 using namespace std;
 
 Node :: Node():nextNodes(),content('\0'), isFinal(false), explored(0), father(NULL), depth(0), maxLength(0), minLength(0), wordAdded(false)

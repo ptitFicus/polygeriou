@@ -1,11 +1,10 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include <QLabel>
 #include <stdlib.h>
-
 #include <stdio.h>
 #include <iostream>
 
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 
 
 using namespace std;

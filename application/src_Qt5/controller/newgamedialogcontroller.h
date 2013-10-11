@@ -5,9 +5,10 @@
 #include <QPushButton>
 #include <QListWidgetItem>
 #include <QErrorMessage>
+
 #include "mainwindowcontroller.h"
 #include "newgamedialog.h"
-#include "DictionnaryManager.h"
+#include "../model/DictionnaryManager.h"
 
 class MainWindowController;
 class NewGameDialogController: public QObject

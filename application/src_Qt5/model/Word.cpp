@@ -1,5 +1,7 @@
-#include "Word.h"
 #include <iostream>
+
+#include "Word.h"
+
 using namespace std;
 
 Word :: Word():spelling(), definitions()

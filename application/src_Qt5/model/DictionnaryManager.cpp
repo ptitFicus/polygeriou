@@ -1,5 +1,6 @@
-#include "DictionnaryManager.h"
 #include <iostream>
+
+#include "DictionnaryManager.h"
 
 using namespace std;
 

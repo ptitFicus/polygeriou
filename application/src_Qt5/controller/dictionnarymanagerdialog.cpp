@@ -1,9 +1,10 @@
-#include "dictionnarymanagerdialog.h"
-#include "ui_dictionnarymanagerdialog.h"
 #include <QListWidget>
 #include <QComboBox>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+
+#include "dictionnarymanagerdialog.h"
+#include "ui_dictionnarymanagerdialog.h"
 
 DictionnaryManagerDialog::DictionnaryManagerDialog(QWidget *parent) :
     QDialog(parent),
