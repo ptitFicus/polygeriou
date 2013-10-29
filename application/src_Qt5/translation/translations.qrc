@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/translations">
+        <file>polygeriou_br.qm</file>
+        <file>polygeriou_en.qm</file>
+        <file>polygeriou_fr.qm</file>
+    </qresource>
+</RCC>
