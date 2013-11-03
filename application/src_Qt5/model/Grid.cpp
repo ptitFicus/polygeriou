@@ -564,26 +564,20 @@ vector<Square*> Grid::getSquares(){
 }
 
 
-void Grid :: initRoot(const vector<Dictionnary*>& dic, Node* root)
+void Grid :: initRoot(const list<Word>& dic, Node* root)
 {
 #ifdef DEBUG
     cout << "-----------------------------------------" << endl;
     cout << "initRoot()" << endl;
 #endif
 
-    for (unsigned int i = 0; i < dic.size() ; i++)
+    for(list<Word>::const_iterator it = dic.begin();it != dic.end() ; it ++)
     {
-        list<Word> content =dic.at(i)->getWords();
-        list<Word>::iterator it = content.begin();
-
-        for(;it != content.end() ; it ++)
-        {
 #ifdef DEBUG
             //~ cout << "Mot : " << it->getSpelling() << endl;
 #endif
-            if (it ->getSize() <= height || it->getSize() <= width)
-                root->addWord(it->getSpelling());
-        }
+        if (it ->getSize() <= height || it->getSize() <= width)
+            root->addWord(it->getSpelling());
     }
     root->addSon(new Node('\0'));
 #ifdef DEBUG
@@ -593,19 +587,40 @@ void Grid :: initRoot(const vector<Dictionnary*>& dic, Node* root)
 #endif
 }
 
-const list<Word> Grid::mergeAllDictionnaries(const vector<Dictionnary*>& d)
+const list<Word> Grid::mergeAllDictionnaries(const vector<string>& d, DictionnaryManager *dm)
 {
-    list<Word> content = d.at(0)->getWords();
-    for (unsigned int i = 1 ; i < d.size() ; i++)
+#ifdef DEBUG
+    cout << "BEGIN of mergeAllDictionnaries" << endl;
+#endif
+    map<string, Dictionnary*>::iterator it = dm->dictionnaries.begin();
+    list<Word> content = it->second->getWords();
+#ifdef DEBUG
+    cout << "BEGIN of the loop in mergeAllDictionnaries" << endl;
+#endif
+    it ++;
+    while (it != dm->dictionnaries.end())
     {
-        list<Word>l = d.at(i)->getWords();
+#ifdef DEBUG
+        cout << "BEGIN of loop iteration in mergeAllDictionnaries" << endl;
+#endif
+        it ++;
+        list<Word>l = it->second->getWords();
         content.merge(l);
+#ifdef DEBUG
+        cout << "END of loop iteration in mergeAllDictionnaries" << endl;
+#endif
     }
+#ifdef DEBUG
+    cout << "END of mergeAllDictionnaries" << endl;
+#endif
     return content;
 }
 
-bool Grid::fill(const vector<Dictionnary*>& d, int height, int width)
+bool Grid::fill(const vector<string> &d, int height, int width, DictionnaryManager *dm)
 {
+#ifdef DEBUG
+    cout << "BEGIN OF FILL" << endl;
+#endif
     if (squares.size() != 0)
     {
         for (unsigned int i = 0 ; i<squares.size() ; i++)
@@ -619,9 +634,14 @@ bool Grid::fill(const vector<Dictionnary*>& d, int height, int width)
     Node* root = new Node();
     this->height = height;
     this->width = width;
-
-    list<Word> dictionnaryContent = mergeAllDictionnaries(d);
-    initRoot(d, root);
+#ifdef DEBUG
+    cout << "FILL BEFORE call to mergeAllDictionnaries" << endl;
+#endif
+    list<Word> dictionnaryContent = mergeAllDictionnaries(d, dm);
+#ifdef DEBUG
+    cout << "FILL AFTER call to mergeAllDictionnaries" << endl;
+#endif
+    initRoot(dictionnaryContent, root);
 
     Node** nodes = new Node* [height+width];
     for (int i = 0 ; i < height + width ; i++)

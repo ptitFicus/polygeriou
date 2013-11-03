@@ -12,6 +12,7 @@ using namespace std;
 class DictionnaryManager : public QObject
 {
     Q_OBJECT
+    friend class Grid;
 public:
     DictionnaryManager();
     ~DictionnaryManager();

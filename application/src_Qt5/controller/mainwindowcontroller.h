@@ -24,7 +24,7 @@ public:
     MainWindowController(MainWindow *mainWindow);
     void deleteGraphicalGrid();
     DictionnaryManager* getDictionnaryManager();
-    bool generateGrid(int heigth, int width, const vector<Dictionnary*>& dictionnaries);
+    bool generateGrid(int heigth, int width, const vector<string>& dictionnaries);
 
 public slots:
 

@@ -6,12 +6,14 @@
 #include <vector>
 #include <QObject>
 #include <fstream>
+#include <map>
 
 #include "Square.h"
 #include "DefinitionSquare.h"
 #include "StandardSquare.h"
 #include "Node.h"
 #include "Dictionnary.h"
+#include "DictionnaryManager.h"
 using namespace std;
 
 class Grid : public QObject
@@ -60,9 +62,9 @@ public:
      * @param width width of the new grid
      * @return true if the function was able to generate the grid, false otherwise
      */
-    bool fill(const vector<Dictionnary*>& dictionary, int height, int width);
+    bool fill(const vector<string>& dictionary, int height, int width, DictionnaryManager* dm);
 
-    const list<Word> mergeAllDictionnaries(const vector<Dictionnary*>& d);
+    const list<Word> mergeAllDictionnaries(const vector<string>& d, DictionnaryManager* dm);
     void displayGrid(char**grid);
     void setContent(int x, int y, char c);
     ~Grid(void);
@@ -85,7 +87,7 @@ private:
     //private methods
     void addStandardSquares(DefinitionSquare* defSq, string word, align a, int x, int y, bool upper = true);
 
-    void initRoot(const vector<Dictionnary*>& dic, Node* root);
+    void initRoot(const list<Word>& dic, Node* root);
 
     /**
          * Recursive method used to fill the grid with dictionaries' Words

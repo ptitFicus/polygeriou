@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     lang[1] = locale[1].toLower();
     lang[2] = '\0';
     QString langstr(lang);
-    bool result = translator.load("polygeriou_"+ langstr);
+    bool result = translator.load("polygeriou_"+ langstr, ":/translations");
 
 
     bool result2 =a.installTranslator(&translator);
@@ -28,9 +28,9 @@ int main(int argc, char *argv[])
     if(result && result2) {
 
         MainWindow w;
-    MainWindowController ctrl(&w);
-    w.show();
-    return a.exec();
+        MainWindowController ctrl(&w);
+        w.show();
+        return a.exec();
     }
     else
         return -1;

@@ -697,11 +697,11 @@ DictionnaryManager* MainWindowController::getDictionnaryManager()
     return dm;
 }
 
-bool MainWindowController::generateGrid(int newHeigth, int newWidth, const vector<Dictionnary*>& dictionnaries)
+bool MainWindowController::generateGrid(int newHeigth, int newWidth, const vector<string>& dictionnaries)
 {
     progressBar->setVisible(true);
     qApp->processEvents();
-    bool ret = this->grid.fill(dictionnaries, newHeigth, newWidth);
+    bool ret = this->grid.fill(dictionnaries, newHeigth, newWidth, dm);
     progressBar->setVisible(false);
     progressBar->reset();
 

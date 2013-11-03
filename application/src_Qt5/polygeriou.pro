@@ -68,3 +68,6 @@ FORMS += \
     view/mainwindow.ui \
     view/dictionnarymanagerdialog.ui \
     view/selectnamedialog.ui
+
+RESOURCES += \
+    translation/translations.qrc

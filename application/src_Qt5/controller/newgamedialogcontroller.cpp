@@ -27,15 +27,14 @@ NewGameDialogController::NewGameDialogController(NewGameDialog *aView, MainWindo
 void NewGameDialogController::slotCreateNewGrid()
 {
     QListWidget* dictionnariesList = view->getDictionnaryList();
-    vector<Dictionnary*> dictionnaries;
+    vector<string> dictionnaries;
 
     for(int i = 0 ; i < dictionnariesList->count() ; i++)
     {
         if(dictionnariesList->item(i)->checkState() == Qt::Checked)
         {
-            Dictionnary* d = mainController->getDictionnaryManager()->getDictionnary((dictionnariesList->item(i)->text()).toUtf8().constData());
-
-            dictionnaries.push_back(d);
+            string dictionnary_name = (dictionnariesList->item(i)->text()).toUtf8().constData();
+            dictionnaries.push_back(dictionnary_name);
         }
     }
     int heigth = view->getHeightBox()->value();

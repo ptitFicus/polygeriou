@@ -53,7 +53,7 @@ class Dictionnary
 		bool deleteWord(vector<Word> w);
 		bool modifyWord(vector<Word> old, const vector<Word>& w);
 
-		inline const list<Word>& getWords() const {return words;};
+        inline const list<Word>& getWords() const {return words;};
 		string getName() const;
 	private:
 		list<Word> words;
