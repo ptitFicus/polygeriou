@@ -1,1 +1,0 @@
-/home/benji/prog/application/dictionnaires/francais.txt
