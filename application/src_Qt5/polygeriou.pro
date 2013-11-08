@@ -32,7 +32,8 @@ SOURCES += \
     model/Node.cpp \
     model/Square.cpp \
     model/StandardSquare.cpp \
-    model/Word.cpp
+    model/Word.cpp \
+    controller/aboutdialog.cpp
 
 HEADERS  += \
     controller/mainwindow.h \
@@ -52,7 +53,8 @@ HEADERS  += \
     model/Node.h \
     model/Square.h \
     model/StandardSquare.h \
-    model/Word.h
+    model/Word.h \
+    controller/aboutdialog.h
 
 OTHER_FILES += \
     translation/polygeriou_fr.ts \
@@ -67,7 +69,8 @@ FORMS += \
     view/newgamedialog.ui \
     view/mainwindow.ui \
     view/dictionnarymanagerdialog.ui \
-    view/selectnamedialog.ui
+    view/selectnamedialog.ui \
+    view/aboutdialog.ui
 
 RESOURCES += \
     translation/translations.qrc

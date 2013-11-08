@@ -10,6 +10,7 @@
 
 #include "mainwindow.h"
 #include "newgamedialog.h"
+#include "aboutdialog.h"
 #include "newgamedialogcontroller.h"
 #include "dictionnarymanagerdialog.h"
 #include "../model/DictionnaryManager.h"
@@ -39,6 +40,7 @@ public slots:
     void slotSaveGame();
     void slotExportGrid();
     void slotImportGrid();
+    void slotAbout();
 
 
     /*
@@ -72,6 +74,7 @@ private:
     MainWindow *view;
     NewGameDialog* newGD;
     NewGameDialogController* newGDC;
+    AboutDialog* aboutDialog;
     DictionnaryManagerDialog* dictionnaryMD;
     DictionnaryManager* dm;
     DictionnaryManagerDialogController* dmController;

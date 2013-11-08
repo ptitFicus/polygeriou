@@ -18,6 +18,7 @@ MainWindowController::MainWindowController(MainWindow *mainWindow){
 
     newGD = new NewGameDialog();
     newGDC = new NewGameDialogController(newGD, this);
+    aboutDialog = new AboutDialog(this->view);
 
     dmController = new DictionnaryManagerDialogController(dm, view);
 
@@ -57,7 +58,7 @@ MainWindowController::MainWindowController(MainWindow *mainWindow){
     connect(view->getUi()->actionCorriger_la_grille, SIGNAL(triggered()), this, SLOT(slotCorrectGrid()));
     connect(view->getUi()->actionQuitter, SIGNAL(triggered()), this, SLOT(slotQuitApplication()));
     connect(view->getUi()->exportPDF, SIGNAL(triggered()), this, SLOT(exportToPDF()));
-
+    connect(view->getUi()->actionA_propos, SIGNAL(triggered()), this, SLOT(slotAbout()));
 
     //Connect the model to the view
     connect(&grid, SIGNAL(contentChanged(int,int,char)), this, SLOT(slotContentChanged(int,int,char)));
@@ -123,6 +124,10 @@ void MainWindowController::slotCheckGrid() {
         }
     }
 
+}
+
+void MainWindowController::slotAbout() {
+    aboutDialog->show();
 }
 
 
